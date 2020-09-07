@@ -1,0 +1,86 @@
+<html>
+  <head>
+<style>
+
+.container{
+  margin: 100px;
+}
+
+.chipped-button{
+  display: flex;
+  border-width: 1px;
+  border-style: solid;
+  padding: 10px;
+}
+
+.chipped-button button{
+    height: 30px;
+    border: 1px solid #25859f;
+    background-color: #25859f;
+    outline:none;
+}
+
+.triangle__top-left {
+    display:block;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 30px 30px 0 0;
+    border-color: #25859f transparent transparent transparent;
+    margin: 0px 0 0 0;
+}
+
+.triangle__top-right {
+    display:block;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 30px 30px 0;
+    border-color: transparent #25859f transparent transparent;
+    margin: 0px 0 0 -30px;
+    position: relative;
+    display: block;
+}
+
+.triangle__bottom-right {
+    display:block;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 0 30px 30px;
+    border-color: transparent transparent #25859f transparent;
+    margin: 0px 0 0 -17px;
+}
+
+.triangle__bottom-left {
+    display:block;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 30px 0 0 30px;
+    border-color: transparent transparent transparent #25859f;
+    margin: 0px 0 0 0px;
+}
+</style>
+  </head>
+  <body>
+    <div class="container">
+        <div class="chipped-button" style="border-color: blue;">
+            <button>triangle__top-left</button>
+            <div class="triangle__top-left"></div>
+        </div>
+        <div class="chipped-button" style="border-color:green;">
+            <div class="triangle__top-right"></div>
+            <button>triangle__top-right</button>
+        </div>
+        <div class="chipped-button" style="border-color:red;">
+            <div class="triangle__bottom-right"></div>
+            <button>triangle__bottom-right</button>
+        </div>
+        <div class="chipped-button" style="border-color:yellow;">
+            <button>triangle__bottom-left</button>
+            <div class="triangle__bottom-left"></div>
+        </div>
+    </div>
+  </body>
+</html>
