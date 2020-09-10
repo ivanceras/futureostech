@@ -1,11 +1,25 @@
 <html>
    <head>
+<style>
+    body{
+      background-color: #2fdbba;
+      font-size:32px;
+    }
+    .hello{
+      position:absolute;
+      top: 50px;
+    }
+    #glcanvas{
+      position:absolute;
+    }
+</style>
       <!-- Learn about this code on MDN: https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Basic_2D_animation_example -->
       <script id="vertex-shader" type="x-shader/x-vertex">
          attribute vec2 aVertexPosition;
 
          uniform vec2 uScalingFactor;
          uniform vec2 uRotationVector;
+         varying vec4 color;
 
          void main() {
            vec2 rotatedPosition = vec2(
@@ -16,6 +30,7 @@
            );
 
            gl_Position = vec4(rotatedPosition * uScalingFactor, 0.0, 1.0);
+           color = gl_Position * 0.5 + 0.5;
          }
       </script><script id="fragment-shader" type="x-shader/x-fragment">
          #ifdef GL_ES
@@ -23,9 +38,11 @@
          #endif
 
          uniform vec4 uGlobalColor;
+         varying vec4 color;
 
          void main() {
-           gl_FragColor = uGlobalColor;
+           //gl_FragColor = uGlobalColor;
+           gl_FragColor = color;
          }
       </script>
 <script>
@@ -131,8 +148,10 @@ function compileShader(id, type) {
 }
 
 function animateScene() {
+  console.log("animating scene..");
 	gl.viewport(0, 0, glCanvas.width, glCanvas.height);
-	gl.clearColor(0.8, 0.9, 1.0, 1.0);
+	//gl.clearColor(0.8, 0.9, 1.0, 1.0);
+  gl.clearColor(0,0,0,0);
 	gl.clear(gl.COLOR_BUFFER_BIT);
 
 	let radians = currentAngle * Math.PI / 180.0;
@@ -170,13 +189,14 @@ function animateScene() {
 		currentAngle = (currentAngle + deltaAngle) % 360;
 
 		previousTime = currentTime;
-		//animateScene();
+		animateScene();
 	});
 }
 
 </script>
    </head>
    <body>
+     <div class="hello">Hello, dont mind me..</div>
       <canvas id="glcanvas" width="600" height="460">
          Oh no! Your browser doesn't support canvas!
       </canvas>
