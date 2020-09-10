@@ -2,6 +2,10 @@
   <head>
 <style>
 
+body{
+  background-color: #000;
+}
+
 .container{
   margin: 100px;
 }
@@ -61,6 +65,66 @@
     border-color: transparent transparent transparent #25859f;
     margin: 0px 0 0 0px;
 }
+
+.circle{
+  border-radius: 50%;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.circle1 {
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  position: relative;
+  border: 12px solid;
+  border-color: #0000FF #0000FF transparent transparent;
+  animation: rotation 1.5s linear infinite;
+}
+
+.circle2, .circle3 {
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transform-origin: center center;
+}
+
+.circle2 {
+  width: 80px;
+  height: 80px;
+  border: 10px solid;
+  border-color: #0000FF #0000FF transparent transparent;
+  animation: rotation 1.5s linear infinite;
+}
+
+.circle3 {
+  width: 50px;
+  height: 50px;
+  border: 6px solid;
+  border-color: cyan cyan transparent transparent;
+  animation: rotationBack 0.5s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
 </style>
   </head>
   <body>
@@ -82,5 +146,10 @@
             <div class="triangle__bottom-left"></div>
         </div>
     </div>
+
+        <div class="circle circle1">
+            <div class="circle circle2"></div>
+            <div class="circle circle3"></div>
+        </div>
   </body>
 </html>
